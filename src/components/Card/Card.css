@@ -1,0 +1,44 @@
+li {
+  color: white;
+}
+
+.cardimage {
+  width: 150px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0%;
+  gap: 20px;
+}
+.cardui {
+  border-radius: 10px;
+  width: 150px;
+  background-color: gray;
+}
+
+.cardui-model {
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .cardui {
+    width: 200px;
+    height: 300px;
+  }
+  .cardimage {
+    width: 200px;
+    height: 200px;
+  }
+  .cardui-model {
+    font-size: 1.5rem;
+  }
+}

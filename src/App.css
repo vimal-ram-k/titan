@@ -1,0 +1,27 @@
+body {
+  background-color: #000;
+}
+
+@media screen and (min-width: 768px) {
+  .app {
+    display: flex;
+    gap: 50px;
+  }
+}
+
+.btn-colletion {
+  width: clamp(300px, 30dvw, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-error {
+  color: white;
+  font-size: 2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
