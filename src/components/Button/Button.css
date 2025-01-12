@@ -1,8 +1,22 @@
+.btn {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: white;
+  width: 90dvw;
+  margin: 0 auto;
+}
+
 .btn-name {
   font-size: 0.8rem;
   font-family: sans-serif;
 }
 
+.btn-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: inherit;
+}
 .btn-in-icon {
   width: 20px;
   height: 20px;
@@ -27,27 +41,10 @@
   height: 30px;
 }
 
-.btn-in {
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn {
-  padding: 15px 15px;
-  border-radius: 20px;
-  background-color: white;
-}
-
 .btn-error {
   color: brown;
   font-size: 0.7rem;
   font-weight: bold;
-}
-@media screen and (max-width: 500px) {
-  .btn {
-    width: 80dvw;
-    margin: 0 auto;
-  }
 }
 
 .btn-key {
@@ -64,4 +61,10 @@
 
 .Search {
   background-color: green;
+}
+
+@media screen and (min-width: 400px) {
+  .btn {
+    width: 300px;
+  }
 }

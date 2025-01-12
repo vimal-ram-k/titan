@@ -9,8 +9,13 @@ body {
   }
 }
 
+@media screen and (min-width: 400px) {
+  .btn-colletion {
+    width: 300px;
+  }
+}
+
 .btn-colletion {
-  width: clamp(300px, 30dvw, 400px);
   display: flex;
   flex-direction: column;
   gap: 20px;

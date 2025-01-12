@@ -10,7 +10,7 @@ type buttonProps = {
   onCallback: (newValue: number) => void;
 };
 export const InputSection = (props: buttonProps) => {
-  const [number, setNumber] = useState<number | null>(null);
+  const [number, setNumber] = useState<number | "">("");
   const [error, isError] = useState<boolean>(false);
   const handleIncrement = () => {
     isError(false);
