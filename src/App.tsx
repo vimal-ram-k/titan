@@ -18,6 +18,10 @@ function App() {
     setBottomD(newValue);
   };
 
+  const handleReset = () => {
+    window.location.reload();
+  };
+
   const fetchData = () => {
     console.log(topD, bottomD);
     const data = action(topD, bottomD);
@@ -44,7 +48,7 @@ function App() {
         ></InputSection>
 
         <section className="footer">
-          <Button name="Reset" onCallback={fetchData}></Button>
+          <Button name="Reset" onCallback={handleReset}></Button>
           <Button name="Search" onCallback={fetchData}></Button>
         </section>
       </section>
