@@ -6,8 +6,8 @@ export const getRangeValues = (props : RangeProps) => {
   
   const result = [];
   for(let  i = 0 ; i < topDiameter.length ; i++){
-    if(topDiameter[i] >= props.topD.from && topDiameter[i] <= props.topD.from+1 ){
-      if(bottomDiameter[i] >= props.bottomD.from && bottomDiameter[i] <= props.bottomD.from + 1){
+    if(topDiameter[i] >= Math.floor( props.topD.from) && topDiameter[i] <= Math.floor(props.topD.from) +1 ){
+      if(bottomDiameter[i] >= Math.floor(props.bottomD.from) && bottomDiameter[i] <= Math.floor(props.bottomD.from)+1){
       result.push({top : topDiameter[i] , bottom : bottomDiameter[i] , models :  Models[i]})
       }
     }
