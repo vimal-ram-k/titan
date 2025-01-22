@@ -15,16 +15,16 @@ function App() {
 
   const handleD = (newValue: number, arg: Arg): void => {
     if (arg.value === "top-From") {
-      setTopD((prev) => ({
+      setTopD(() => ({
         from: newValue,
-        to: prev?.to ?? newValue,
+        to: newValue,
       }));
     }
 
     if (arg.value === "bottom-From") {
-      setBottomD((prev) => ({
+      setBottomD(() => ({
         from: newValue,
-        to: prev?.to ?? newValue,
+        to: newValue,
       }));
     }
 
@@ -44,6 +44,7 @@ function App() {
   };
 
   const fetchData = () => {
+    console.log(topD, " ", bottomD);
     const data = DataFetch(topD, bottomD);
     setList(data);
   };
