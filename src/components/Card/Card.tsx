@@ -32,7 +32,6 @@ const images = [
 ];
 
 export const Card = (props: Datalist) => {
-  console.log(props.list);
   return (
     <div>
       <ul className="card-list">

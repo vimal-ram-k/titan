@@ -76,9 +76,6 @@ const reArrangeTopDValuesToAcedentingOrder = (topD, botD, models) => {
       }
     }
   }
-  console.log(topD);
-  console.log(botD);
-  console.log(models);
 };
 
 reArrangeTopDValuesToAcedentingOrder(topDiameter, bottomDiameter, Models);
