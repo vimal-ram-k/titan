@@ -7,13 +7,15 @@ import watch4 from "../../assets/watches/watch4.jpg";
 import watch5 from "../../assets/watches/watch5.jpg";
 
 type propsCards = {
-  list: [
-    {
-      top: number;
-      bottom: number;
-      models: string;
-    }
-  ];
+  list:
+    | [
+        {
+          top: number;
+          bottom: number;
+          models: string;
+        }
+      ]
+    | [];
 };
 
 const images = [

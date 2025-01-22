@@ -21,7 +21,7 @@ function App() {
         {
           top: number;
           bottom: number;
-          model: string;
+          models: string;
         }
       ]
     | []
@@ -67,12 +67,10 @@ function App() {
     if (topD && bottomD) {
       const data = getRangeValues({ topD, bottomD });
       if (!data) {
-        console.log("data", data);
         isError(true);
       } else {
         isError(false);
         setList(data);
-        console.log(list);
       }
     }
   };
