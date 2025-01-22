@@ -1,17 +1,17 @@
 import { Button } from "./components/Button/Button";
 import "./App.css";
+import { handleReset } from "./helper/refresher";
 
 import { useState } from "react";
-import { getRangeValues } from "./action/action";
 import { Card } from "./components/Card/Card";
 import { InputSection } from "./components/Input/Input";
 import { Range, Arg, Datalist } from "./components/Input/InputType";
+import { DataFetch } from "./helper/fetchData";
 
 function App() {
   const [topD, setTopD] = useState<Range | null>(null);
   const [bottomD, setBottomD] = useState<Range | null>(null);
   const [list, setList] = useState<Datalist["list"]>([]);
-  const [error, isError] = useState<boolean>(false);
 
   const handleD = (newValue: number, arg: Arg): void => {
     if (arg.value === "top-From") {
@@ -43,21 +43,9 @@ function App() {
     }
   };
 
-  const handleReset = () => {
-    window.location.reload();
-  };
-
   const fetchData = () => {
-    console.log(topD, bottomD);
-    if (topD && bottomD) {
-      const data = getRangeValues({ topD, bottomD });
-      if (!data) {
-        isError(true);
-      } else {
-        isError(false);
-        setList(data);
-      }
-    }
+    const data = DataFetch(topD, bottomD);
+    setList(data);
   };
 
   return (
@@ -74,8 +62,7 @@ function App() {
           <Button name="Search" onCallback={fetchData}></Button>
         </section>
       </section>
-      {error && <p className="card-error">No Items</p>}
-      {!error && <Card list={list} />}
+      <Card list={list} />
     </div>
   );
 }
