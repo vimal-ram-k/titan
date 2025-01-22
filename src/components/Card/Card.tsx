@@ -6,15 +6,7 @@ import watch3 from "../../assets/watches/watch3.jpg";
 import watch4 from "../../assets/watches/watch4.jpg";
 import watch5 from "../../assets/watches/watch5.jpg";
 
-type propsCards = {
-  list:
-    | {
-        top: number;
-        bottom: number;
-        models: string;
-      }[]
-    | [];
-};
+import { Datalist } from "../Input/InputType";
 
 const images = [
   watch1,
@@ -39,7 +31,7 @@ const images = [
   watch5,
 ];
 
-export const Card = (props: propsCards) => {
+export const Card = (props: Datalist) => {
   console.log(props.list);
   return (
     <div>

@@ -7,7 +7,13 @@ type Arg = {
   value: "top-From" | "bottom-From" | "top-To" | "botton-To";
 };
 
-
+type Datalist = {
+  list:{
+    top: number;
+    bottom: number;
+    models: string;
+  }[] | []
+}
 
 type InputProps = {
       name: string;
@@ -22,4 +28,4 @@ type ButtonProps = {
 };
 
 
-export {Range , Arg , ButtonProps , InputProps}
+export {Range , Arg , ButtonProps , InputProps , Datalist}

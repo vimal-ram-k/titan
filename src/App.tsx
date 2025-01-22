@@ -5,27 +5,12 @@ import { useState } from "react";
 import { getRangeValues } from "./action/action";
 import { Card } from "./components/Card/Card";
 import { InputSection } from "./components/Input/Input";
-
-type Range = {
-  from: number;
-  to: number;
-};
-
-type Arg = {
-  value: "top-From" | "bottom-From" | "top-To" | "botton-To";
-};
+import { Range, Arg, Datalist } from "./components/Input/InputType";
 
 function App() {
   const [topD, setTopD] = useState<Range | null>(null);
   const [bottomD, setBottomD] = useState<Range | null>(null);
-  const [list, setList] = useState<
-    | {
-        top: number;
-        bottom: number;
-        models: string;
-      }[]
-    | []
-  >([]);
+  const [list, setList] = useState<Datalist["list"]>([]);
   const [error, isError] = useState<boolean>(false);
 
   const handleD = (newValue: number, arg: Arg): void => {
