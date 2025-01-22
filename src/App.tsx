@@ -1,8 +1,10 @@
-import { Button, InputSection } from "./components/Button/Button";
+import { Button } from "./components/Button/Button";
 import "./App.css";
+
 import { useState } from "react";
 import { getRangeValues } from "./action/action";
 import { Card } from "./components/Card/Card";
+import { InputSection } from "./components/Input/Input";
 
 type Range = {
   from: number;
@@ -10,7 +12,7 @@ type Range = {
 };
 
 type Arg = {
-  value: "topD-From" | "topD-To" | "BotD-From" | "BotD-To";
+  value: "top-From" | "bottom-From" | "top-To" | "botton-To";
 };
 
 function App() {
@@ -26,32 +28,32 @@ function App() {
   >([]);
   const [error, isError] = useState<boolean>(false);
 
-  const handleD = (newValue: Range, arg: Arg): void => {
-    if (arg.value === "topD-From") {
-      setTopD(() => ({
-        from: newValue.from,
-        to: newValue.from,
-      }));
-    }
-
-    if (arg.value === "topD-To") {
+  const handleD = (newValue: number, arg: Arg): void => {
+    if (arg.value === "top-From") {
       setTopD((prev) => ({
-        from: prev?.from ?? newValue.from,
-        to: newValue.to,
+        from: newValue,
+        to: prev?.to ?? newValue,
       }));
     }
 
-    if (arg.value === "BotD-From") {
-      setBottomD(() => ({
-        from: newValue.from,
-        to: newValue.from,
-      }));
-    }
-
-    if (arg.value === "BotD-To") {
+    if (arg.value === "bottom-From") {
       setBottomD((prev) => ({
-        from: prev?.from ?? newValue.from,
-        to: newValue.to,
+        from: newValue,
+        to: prev?.to ?? newValue,
+      }));
+    }
+
+    if (arg.value === "botton-To") {
+      setBottomD((prev) => ({
+        from: prev?.from ?? newValue,
+        to: newValue,
+      }));
+    }
+
+    if (arg.value === "top-To") {
+      setTopD((prev) => ({
+        from: prev?.from ?? newValue,
+        to: newValue,
       }));
     }
   };
@@ -76,7 +78,7 @@ function App() {
   return (
     <div className="app">
       <section className="btn-colletion">
-        <InputSection name={"Top Diameter"} onCallback={handleD}></InputSection>
+        <InputSection name={"Top Diameter"} onCallback={handleD} />
         <InputSection
           name={"Bottom Diameter"}
           onCallback={handleD}
