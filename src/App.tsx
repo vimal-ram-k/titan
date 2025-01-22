@@ -17,13 +17,11 @@ function App() {
   const [topD, setTopD] = useState<Range | null>(null);
   const [bottomD, setBottomD] = useState<Range | null>(null);
   const [list, setList] = useState<
-    | [
-        {
-          top: number;
-          bottom: number;
-          models: string;
-        }
-      ]
+    | {
+        top: number;
+        bottom: number;
+        models: string;
+      }[]
     | []
   >([]);
   const [error, isError] = useState<boolean>(false);

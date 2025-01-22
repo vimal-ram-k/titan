@@ -8,13 +8,11 @@ import watch5 from "../../assets/watches/watch5.jpg";
 
 type propsCards = {
   list:
-    | [
-        {
-          top: number;
-          bottom: number;
-          models: string;
-        }
-      ]
+    | {
+        top: number;
+        bottom: number;
+        models: string;
+      }[]
     | [];
 };
 
