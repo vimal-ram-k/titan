@@ -28,7 +28,6 @@ function App() {
     }
 
     if (arg.value === "topD-To") {
-      alert(newValue.to);
       setTopD((prev) => ({
         from: prev?.from ?? newValue.from,
         to: newValue.to,
