@@ -1,53 +1,91 @@
 import "../Button/Button.css";
-import plus from "../../assets/plus.svg";
-import minus from "../../assets/minus.png";
-import line from "../../assets/Line.svg";
+// import plus from "../../assets/plus.svg";
+// import minus from "../../assets/minus.png";
+// import line from "../../assets/Line.svg";
 import React, { useState } from "react";
+
+type Range = {
+  from: number;
+  to: number;
+};
+
+type Arg = {
+  value: "topD-From" | "topD-To" | "BotD-From" | "BotD-To";
+};
 
 type buttonProps = {
   name: string;
-  onCallback: (newValue: number) => void;
+  onCallback: (newValue: Range, arg: Arg) => void;
 };
 export const InputSection = (props: buttonProps) => {
   const [number, setNumber] = useState<number | "">("");
-  const [error, isError] = useState<boolean>(false);
-  const handleIncrement = () => {
-    isError(false);
-    if (number) {
-      const newValue = number + 1;
-      setNumber(newValue);
-      props.onCallback(newValue);
-    }
-  };
+  const [toNumber, setToNumber] = useState<number | "">("");
 
-  const handleDecrement = () => {
-    if (number) {
-      if (number - 1 > 0) {
-        isError(false);
-        const newValue = number - 1;
-        setNumber(newValue);
-        props.onCallback(newValue);
-      } else {
-        isError(true);
-      }
-    }
-  };
+  // const [error, isError] = useState<boolean>(false);
+  // const handleIncrement = () => {
+  //   isError(false);
+  //   if (number) {
+  //     const newValue = number + 1;
+  //     setNumber(newValue);
+  //     props.onCallback(newValue);
+  //   }
+  // };
+
+  // const handleDecrement = () => {
+  //   if (number) {
+  //     if (number - 1 > 0) {
+  //       isError(false);
+  //       const newValue = number - 1;
+  //       setNumber(newValue);
+  //       props.onCallback(newValue);
+  //     } else {
+  //       isError(true);
+  //     }
+  //   }
+  // };
 
   return (
     <div className="btn">
       <h1 className="btn-name">{props.name}</h1>
 
       <section className="btn-in">
+        <label htmlFor="btn-input">From</label>
         <input
           type="number"
+          
           className="btn-input"
           value={number}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setNumber(Number(e.target.value));
-            props.onCallback(Number(e.target.value));
+            props.onCallback(
+              { from: Number(e.target.value), to: 0 },
+              {
+                value:
+                  `${props.name}` === "Top Diameter"
+                    ? "topD-From"
+                    : "BotD-From",
+              }
+            );
           }}
         />
-        <section className="btn-input-right">
+
+        <label htmlFor="btn-input">To</label>
+        <input
+          type="number"
+          className="btn-input"
+          value={toNumber}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setToNumber(Number(e.target.value));
+            props.onCallback(
+              { from: 0, to: Number(e.target.value) },
+              {
+                value:
+                  `${props.name}` === "Top Diameter" ? "topD-To" : "BotD-To",
+              }
+            );
+          }}
+        />
+        {/* <section className="btn-input-right">
           <img
             src={plus}
             className="btn-in-icon plus"
@@ -61,9 +99,9 @@ export const InputSection = (props: buttonProps) => {
             alt=""
             onClick={handleDecrement}
           />
-        </section>
+        </section> */}
       </section>
-      {error && <p className="btn-error">Value shouldn't go less than 0</p>}
+      {/* {error && <p className="btn-error">Value shouldn't go less than 0</p>} */}
     </div>
   );
 };

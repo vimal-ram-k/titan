@@ -2,7 +2,7 @@
   padding: 15px;
   border-radius: 10px;
   background-color: white;
-  width: 90dvw;
+  width: min(100dvh, 400px);
   margin: 0 auto;
 }
 
@@ -14,6 +14,7 @@
 .btn-in {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   width: inherit;
 }
@@ -30,6 +31,8 @@
 }
 
 .btn-input {
+  width: min(30dvw, 100px);
+  margin: 2px;
   border: none;
   font-size: 1rem;
   border: 0.5px solid gray;
