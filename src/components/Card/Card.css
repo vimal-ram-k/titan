@@ -1,15 +1,12 @@
 li {
   color: white;
+  list-style: none;
 }
 
 .cardimage {
   width: 150px;
   height: 200px;
   border-radius: 10px;
-}
-
-li {
-  list-style: none;
 }
 
 .card-list {
@@ -22,23 +19,25 @@ li {
   border-radius: 10px;
   width: 150px;
   background-color: gray;
+  height: auto;
 }
 
 .cardui-model {
-  font-size: 1rem;
+  font-size: 0.4rem;
   text-align: center;
 }
 
 @media screen and (min-width: 768px) {
   .cardui {
     width: 200px;
-    height: 300px;
+    height: auto;
+    padding: 2px;
   }
   .cardimage {
     width: 200px;
     height: 200px;
   }
   .cardui-model {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }

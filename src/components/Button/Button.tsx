@@ -18,8 +18,8 @@ type buttonProps = {
   onCallback: (newValue: Range, arg: Arg) => void;
 };
 export const InputSection = (props: buttonProps) => {
-  const [number, setNumber] = useState<number | "">("");
-  const [toNumber, setToNumber] = useState<number | "">("");
+  const [number, setNumber] = useState("");
+  const [toNumber, setToNumber] = useState("");
 
   // const [error, isError] = useState<boolean>(false);
   // const handleIncrement = () => {
@@ -51,12 +51,10 @@ export const InputSection = (props: buttonProps) => {
       <section className="btn-in">
         <label htmlFor="btn-input">From</label>
         <input
-          type="number"
-          
           className="btn-input"
           value={number}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setNumber(Number(e.target.value));
+            setNumber(e.target.value);
             props.onCallback(
               { from: Number(e.target.value), to: 0 },
               {
@@ -71,11 +69,10 @@ export const InputSection = (props: buttonProps) => {
 
         <label htmlFor="btn-input">To</label>
         <input
-          type="number"
           className="btn-input"
           value={toNumber}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setToNumber(Number(e.target.value));
+            setToNumber(e.target.value);
             props.onCallback(
               { from: 0, to: Number(e.target.value) },
               {

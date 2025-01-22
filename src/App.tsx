@@ -16,7 +16,16 @@ type Arg = {
 function App() {
   const [topD, setTopD] = useState<Range | null>(null);
   const [bottomD, setBottomD] = useState<Range | null>(null);
-  const [list, setList] = useState<[]>([]);
+  const [list, setList] = useState<
+    | [
+        {
+          top: number;
+          bottom: number;
+          model: string;
+        }
+      ]
+    | []
+  >([]);
   const [error, isError] = useState<boolean>(false);
 
   const handleD = (newValue: Range, arg: Arg): void => {
