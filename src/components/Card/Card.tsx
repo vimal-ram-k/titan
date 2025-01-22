@@ -10,7 +10,28 @@ type propsCards = {
   list: [];
 };
 
-const images = [watch1, watch2, watch3, watch4, watch5];
+const images = [
+  watch1,
+  watch2,
+  watch3,
+  watch4,
+  watch5,
+  watch1,
+  watch2,
+  watch3,
+  watch4,
+  watch5,
+  watch1,
+  watch2,
+  watch3,
+  watch4,
+  watch5,
+  watch1,
+  watch2,
+  watch3,
+  watch4,
+  watch5,
+];
 
 export const Card = (props: propsCards) => {
   console.log(props.list);
